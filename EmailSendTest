@@ -1,0 +1,23 @@
+package cn.com.mcd.mail;
+
+import junit.framework.TestCase;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+/**
+ * -----------------------------------------
+ * @描述: Junit测试,运行将发送一封email
+ * -----------------------------------------
+ */
+public class EmailSendTest{
+	
+    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    	 ApplicationContext context = new ClassPathXmlApplicationContext("spring-smtp-mail.xml");
+         Email mail = (Email)context.getBean("simpleMail");
+         mail.sendMail("Spring SMTP Mail Subject true new", "Spring SMTP Mail true  Text www.baidu.com  <a href='www.baidu.com'>baidu</a>", "eps@free.com");
+         //mail.sendMail("标题", "内容", "收件人邮箱");
+
+	}
+
+}
